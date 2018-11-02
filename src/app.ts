@@ -1,4 +1,5 @@
 import {ui, Button, TextView, NavigationView, ScrollView, Page} from 'tabris';
+import {getRandomTaco, TacoResponse} from './connectors/taco';
 
 let navigationView = new NavigationView({
   left:0, top: 0, right: 0, bottom: 0
@@ -18,6 +19,10 @@ new TextView({
   text: 'For future title',
   font: 'bold 28px'
 }).appendTo(scrollView);
+
+getRandomTaco().then((tacoResponse) => {
+  console.log(tacoResponse);
+});
 
 // let button = new Button({
 //   centerX: 0, top: 100,
